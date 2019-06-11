@@ -5,3 +5,4 @@ Docker Monitor Common/bin
 Docker Monitor Common/obj
 Plugins/Docker Monitor Mailer Plugin/bin
 Plugins/Docker Monitor Mailer Plugin/obj
+/Release
