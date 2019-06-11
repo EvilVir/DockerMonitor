@@ -1,0 +1,57 @@
+{
+  "Logging": {
+    "Console": {
+      "Levels": [ "Trace", "Debug", "Information", "Warning", "Error", "Critical" ]
+    },
+
+    "EventLog": {
+      "Levels": [ "Information", "Warning", "Error", "Critical" ],
+      "Target": "/Application/Docker Monitor"
+    }
+  },
+
+  "Docker": {
+    "Uri": "npipe://./pipe/docker_engine"
+  },
+
+  "Groups": {
+    "Nginx": {
+      "Interval": 60,
+      "Containers": [ "nginx" ],
+      "Actions": {
+        "AnyDown,AnyMissing": [
+          {
+            "Type": "ShellCommand",
+            "Command": "powershell",
+            "Arguments": "docker rm nginx",
+            "ErrorDetecting": "ExitCode,StdErr"
+          },
+          {
+            "Type": "ShellCommand",
+            "Command": "powershell",
+            "Arguments": "docker run -d --name \"nginx\" -p 8080:80 nginx:latest",
+            "ErrorDetecting": "Ignore",
+            "WorkingDirectory": "C:\\"
+          }
+        ]
+      }
+    }
+  },
+
+  "Plugins": {
+    "Mailer": {
+      "Server": {
+        "Host": "",
+        "User": "",
+        "Password": ""
+      },
+      "Actions": {
+        "AnyDown,AnyMissing": {
+          "Recipients": [ "somebody@somewhere.com" ],
+          "Title": "Detected container(s) down or missing",
+          "Message": "Detected states:\r\n\r\n{DetectedStates}\r\n\r\n------\r\n\r\nOutput of actions taken:\r\n\r\n{ActionsOutput}"
+        }
+      }
+    }
+  }
+}

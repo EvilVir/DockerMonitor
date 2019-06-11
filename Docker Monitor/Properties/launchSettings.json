@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Docker Monitor": {
+      "commandName": "Project",
+      "commandLineArgs": "-config \"C:\\Users\\Vir\\Desktop\\DockerMonitor.json\""
+    }
+  }
+}

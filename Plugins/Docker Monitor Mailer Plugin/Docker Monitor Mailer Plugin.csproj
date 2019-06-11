@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>StrangeFog.Docker.Monitor.Plugins.Mailer</RootNamespace>
+    <AssemblyName>DockerMonitor.Plugins.Mailer</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Docker Monitor Common\Docker Monitor Common.csproj" />
+  </ItemGroup>
+
+</Project>
