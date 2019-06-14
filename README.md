@@ -1,5 +1,5 @@
 # Docker Monitor
-Purpose of this tool is to constantly monitor Docker containers and react when they state changes.
+Purpose of this tool is to constantly monitor Docker containers and react when their state changes.
 
 ## Example use case
 Some of your containers aren't coming back after machine restart or some of them are sometimes quiting. You can install this tool so it will check each couple of seconds if containers are up and if it will detect that they aren't it will run defined commands (so you can bring them back automatically, report the problem etc.).
